@@ -1,0 +1,23 @@
+{
+    "Провайдер":{
+        "1":"Selectel",
+        "2":"Yandex Cloud",
+        "3":"VK Cloud",
+        "4":"---",
+        "5":"Cloud"
+    },
+    "Сервис":{
+        "1":"Облачные базы данных (Managed Databases)",
+        "2":"Managed Service",
+        "3":"Cloud Databases",
+        "4":"Облачные базы данных",
+        "5":"Relational Database Service"
+    },
+    "Сумма баллов":{
+        "1":643,
+        "2":639,
+        "3":606,
+        "4":541,
+        "5":519
+    }
+}
