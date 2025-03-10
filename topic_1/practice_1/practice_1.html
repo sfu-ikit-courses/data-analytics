@@ -7529,17 +7529,801 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="%D0%A7%D0%B0%D1%81%D1%82%D1%8C-1.-%D0%A7%D1%82%D0%B5%D0%BD%D0%B8%D0%B5-CSV-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0">Часть 1. Чтение CSV-файла<a class="anchor-link" href="#%D0%A7%D0%B0%D1%81%D1%82%D1%8C-1.-%D0%A7%D1%82%D0%B5%D0%BD%D0%B8%D0%B5-CSV-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0">¶</a></h3><p>С использованием функции pd.read_csv() выполните следующие операции по чтению данных для датасета titanic.csv:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ol>
-<li><p>прочитайте файл и переведите его в датафрейм, в качестве индекса используйте столбец 'PassengerId';</p>
-</li>
-<li><p>извлеките из файла и сохраните в датафрейм первые 10 строк столбцов 'Name', 'Sex' и 'Survived';</p>
-</li>
-<li><p>прочитайте файл и задайте новый набор имен для столбцов в нижнем регистре;</p>
-</li>
-<li><p>прочитайте файл, пропустив первые 100 строк, а затем считайте следующие 8 строк;</p>
-</li>
-<li><p>прочитайте первые 10 строк из файла, пропустив строки 1, 3, 7.</p>
-</li>
+<li>прочитайте файл и переведите его в датафрейм, в качестве индекса используйте столбец 'PassengerId';</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">"PassengerId"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Survived</th>
+<th>Pclass</th>
+<th>Name</th>
+<th>Sex</th>
+<th>Age</th>
+<th>SibSp</th>
+<th>Parch</th>
+<th>Ticket</th>
+<th>Fare</th>
+<th>Cabin</th>
+<th>Embarked</th>
+</tr>
+<tr>
+<th>PassengerId</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+</tr>
+<tr>
+<th>5</th>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>887</th>
+<td>0</td>
+<td>2</td>
+<td>Montvila, Rev. Juozas</td>
+<td>male</td>
+<td>27.0</td>
+<td>0</td>
+<td>0</td>
+<td>211536</td>
+<td>13.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>888</th>
+<td>1</td>
+<td>1</td>
+<td>Graham, Miss. Margaret Edith</td>
+<td>female</td>
+<td>19.0</td>
+<td>0</td>
+<td>0</td>
+<td>112053</td>
+<td>30.0000</td>
+<td>B42</td>
+<td>S</td>
+</tr>
+<tr>
+<th>889</th>
+<td>0</td>
+<td>3</td>
+<td>Johnston, Miss. Catherine Helen "Carrie"</td>
+<td>female</td>
+<td>NaN</td>
+<td>1</td>
+<td>2</td>
+<td>W./C. 6607</td>
+<td>23.4500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>890</th>
+<td>1</td>
+<td>1</td>
+<td>Behr, Mr. Karl Howell</td>
+<td>male</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>111369</td>
+<td>30.0000</td>
+<td>C148</td>
+<td>C</td>
+</tr>
+<tr>
+<th>891</th>
+<td>0</td>
+<td>3</td>
+<td>Dooley, Mr. Patrick</td>
+<td>male</td>
+<td>32.0</td>
+<td>0</td>
+<td>0</td>
+<td>370376</td>
+<td>7.7500</td>
+<td>NaN</td>
+<td>Q</td>
+</tr>
+</tbody>
+</table>
+<p>891 rows × 11 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="2">
+<li>извлеките из файла и сохраните в датафрейм первые 10 строк столбцов 'Name', 'Sex' и 'Survived';</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">,</span> <span class="s2">"Survived"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Survived</th>
+<th>Name</th>
+<th>Sex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+</tr>
+<tr>
+<th>4</th>
+<td>0</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+</tr>
+<tr>
+<th>5</th>
+<td>0</td>
+<td>Moran, Mr. James</td>
+<td>male</td>
+</tr>
+<tr>
+<th>6</th>
+<td>0</td>
+<td>McCarthy, Mr. Timothy J</td>
+<td>male</td>
+</tr>
+<tr>
+<th>7</th>
+<td>0</td>
+<td>Palsson, Master. Gosta Leonard</td>
+<td>male</td>
+</tr>
+<tr>
+<th>8</th>
+<td>1</td>
+<td>Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)</td>
+<td>female</td>
+</tr>
+<tr>
+<th>9</th>
+<td>1</td>
+<td>Nasser, Mrs. Nicholas (Adele Achem)</td>
+<td>female</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="3">
+<li>прочитайте файл и задайте новый набор имен для столбцов в нижнем регистре;</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="s2">"survived,pclass,name,sex,age,sibsp,parch,ticket,fare,cabin,embarked"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>survived</th>
+<th>pclass</th>
+<th>name</th>
+<th>sex</th>
+<th>age</th>
+<th>sibsp</th>
+<th>parch</th>
+<th>ticket</th>
+<th>fare</th>
+<th>cabin</th>
+<th>embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+</tr>
+<tr>
+<th>5</th>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>887</th>
+<td>0</td>
+<td>2</td>
+<td>Montvila, Rev. Juozas</td>
+<td>male</td>
+<td>27.0</td>
+<td>0</td>
+<td>0</td>
+<td>211536</td>
+<td>13.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>888</th>
+<td>1</td>
+<td>1</td>
+<td>Graham, Miss. Margaret Edith</td>
+<td>female</td>
+<td>19.0</td>
+<td>0</td>
+<td>0</td>
+<td>112053</td>
+<td>30.0000</td>
+<td>B42</td>
+<td>S</td>
+</tr>
+<tr>
+<th>889</th>
+<td>0</td>
+<td>3</td>
+<td>Johnston, Miss. Catherine Helen "Carrie"</td>
+<td>female</td>
+<td>NaN</td>
+<td>1</td>
+<td>2</td>
+<td>W./C. 6607</td>
+<td>23.4500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>890</th>
+<td>1</td>
+<td>1</td>
+<td>Behr, Mr. Karl Howell</td>
+<td>male</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>111369</td>
+<td>30.0000</td>
+<td>C148</td>
+<td>C</td>
+</tr>
+<tr>
+<th>891</th>
+<td>0</td>
+<td>3</td>
+<td>Dooley, Mr. Patrick</td>
+<td>male</td>
+<td>32.0</td>
+<td>0</td>
+<td>0</td>
+<td>370376</td>
+<td>7.7500</td>
+<td>NaN</td>
+<td>Q</td>
+</tr>
+</tbody>
+</table>
+<p>891 rows × 11 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="4">
+<li>прочитайте файл, пропустив первые 100 строк, а затем считайте следующие 8 строк;</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>survived</th>
+<th>pclass</th>
+<th>name</th>
+<th>sex</th>
+<th>age</th>
+<th>sibsp</th>
+<th>parch</th>
+<th>ticket</th>
+<th>fare</th>
+<th>cabin</th>
+<th>embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>100</th>
+<td>0</td>
+<td>2</td>
+<td>Kantor, Mr. Sinai</td>
+<td>male</td>
+<td>34.0</td>
+<td>1</td>
+<td>0</td>
+<td>244367</td>
+<td>26.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>101</th>
+<td>0</td>
+<td>3</td>
+<td>Petranec, Miss. Matilda</td>
+<td>female</td>
+<td>28.0</td>
+<td>0</td>
+<td>0</td>
+<td>349245</td>
+<td>7.8958</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>102</th>
+<td>0</td>
+<td>3</td>
+<td>Petroff, Mr. Pastcho ("Pentcho")</td>
+<td>male</td>
+<td>NaN</td>
+<td>0</td>
+<td>0</td>
+<td>349215</td>
+<td>7.8958</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>103</th>
+<td>0</td>
+<td>1</td>
+<td>White, Mr. Richard Frasar</td>
+<td>male</td>
+<td>21.0</td>
+<td>0</td>
+<td>1</td>
+<td>35281</td>
+<td>77.2875</td>
+<td>D26</td>
+<td>S</td>
+</tr>
+<tr>
+<th>104</th>
+<td>0</td>
+<td>3</td>
+<td>Johansson, Mr. Gustaf Joel</td>
+<td>male</td>
+<td>33.0</td>
+<td>0</td>
+<td>0</td>
+<td>7540</td>
+<td>8.6542</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>105</th>
+<td>0</td>
+<td>3</td>
+<td>Gustafsson, Mr. Anders Vilhelm</td>
+<td>male</td>
+<td>37.0</td>
+<td>2</td>
+<td>0</td>
+<td>3101276</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>106</th>
+<td>0</td>
+<td>3</td>
+<td>Mionoff, Mr. Stoytcho</td>
+<td>male</td>
+<td>28.0</td>
+<td>0</td>
+<td>0</td>
+<td>349207</td>
+<td>7.8958</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr>
+<th>107</th>
+<td>1</td>
+<td>3</td>
+<td>Salkjelsvik, Miss. Anna Kristine</td>
+<td>female</td>
+<td>21.0</td>
+<td>0</td>
+<td>0</td>
+<td>343120</td>
+<td>7.6500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="5">
+<li>прочитайте первые 10 строк из файла, пропустив строки 1, 3, 7.</li>
 </ol>
 </div>
 </div>
@@ -7552,23 +8336,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="c1"># 1</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">"PassengerId"</span><span class="p">)</span>
-
-<span class="c1"># 2</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">,</span> <span class="s2">"Survived"</span><span class="p">])</span>
-
-<span class="c1"># 3</span>
-<span class="n">names</span> <span class="o">=</span> <span class="s2">"passengerid,survived,pclass,name,sex,age,sibsp,parch,ticket,fare,cabin,embarked"</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">))</span>
-
-<span class="c1"># 4</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-
-<span class="c1"># 5</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"titanic.csv"</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7787,7 +8555,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7816,7 +8584,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -7839,7 +8607,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7860,7 +8628,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7937,18 +8705,6 @@ a.anchor-link {
 </li>
 <li><p>Добавьте в таблицу "Блюда" 5 любых блюд, в таблицу "Заказы" - 3 заказа и в каждом заказе по 2-3 блюда (таблица "Заказано").</p>
 </li>
-<li><p>С помощью метода read_sql выполните извлечение данных из базы данных и представьте в виде датафрейма:</p>
-<ul>
-<li>информацию о заказанных блюдах со следующими столбцами: номер заказа, название блюда, цена.</li>
-<li>сумму к оплате для каждого заказа.</li>
-<li>названия всех блюд, у которых цена меньше 300 руб.</li>
-<li>все блюда заказа с номером 2 (или другим номером).</li>
-<li>список блюд по убыванию цены.</li>
-</ul>
-<p>Измените расчёт суммы к оплате, предусмотрев скидку 5% при наличии в заказе 3 и более блюд.</p>
-</li>
-<li><p>Создайте датафреймы для хранения информации о трёх новых блюдах, двух новых заказах, в каждом из которых по 2-3 блюда. С помощью метода to_sql выполните запись в базу данных.</p>
-</li>
 </ol>
 </div>
 </div>
@@ -7958,7 +8714,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
@@ -7970,11 +8726,50 @@ a.anchor-link {
 <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"init.sql"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">run</span><span class="p">([</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"sqlite3"</span><span class="p">,</span> <span class="s2">"cafe.db"</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="3">
+<li>С помощью метода read_sql выполните извлечение данных из базы данных и представьте в виде датафрейма:</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>информацию о заказанных блюдах со следующими столбцами: номер заказа, название блюда, цена.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
 
 
 <span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
 
-    <span class="c1"># 3.1</span>
     <span class="n">query</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">        select o.id as order_id, d.name as dish_name, d.price as dish_price</span>
 <span class="s2">        from OrderItems as oi</span>
@@ -7984,7 +8779,226 @@ a.anchor-link {
 
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 
-    <span class="c1"># 3.2</span>
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>order_id</th>
+<th>dish_name</th>
+<th>dish_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>Пицца Маргарита</td>
+<td>12.99</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>5</th>
+<td>3</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>6</th>
+<td>3</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>7</th>
+<td>1</td>
+<td>Пицца Маргарита</td>
+<td>12.99</td>
+</tr>
+<tr>
+<th>8</th>
+<td>1</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>9</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>10</th>
+<td>2</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>11</th>
+<td>3</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>12</th>
+<td>3</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>13</th>
+<td>1</td>
+<td>Пицца Маргарита</td>
+<td>12.99</td>
+</tr>
+<tr>
+<th>14</th>
+<td>1</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>15</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>16</th>
+<td>2</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>17</th>
+<td>3</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>18</th>
+<td>3</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>19</th>
+<td>1</td>
+<td>Пицца Маргарита</td>
+<td>12.99</td>
+</tr>
+<tr>
+<th>20</th>
+<td>1</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>21</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>22</th>
+<td>2</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>23</th>
+<td>3</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>24</th>
+<td>3</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>сумму к оплате для каждого заказа.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
+
+
+<span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+
     <span class="n">query</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">        select o.id as order_id, sum(d.price) as total</span>
 <span class="s2">        from OrderItems as oi</span>
@@ -7995,10 +9009,241 @@ a.anchor-link {
 
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 
-    <span class="c1"># 3.3</span>
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>order_id</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>97.96</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>63.50</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>68.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>названия всех блюд, у которых цена меньше 300 руб.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
+
+
+<span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+
     <span class="n">query</span> <span class="o">=</span> <span class="s2">"select name from dishes where price &lt; 300"</span>
 
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Пицца Маргарита</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Салат Цезарь</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Томатный суп</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Спагетти Карбонара</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Тирамису</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Бургер</td>
+</tr>
+<tr>
+<th>6</th>
+<td>Суши</td>
+</tr>
+<tr>
+<th>7</th>
+<td>Салат Оливье</td>
+</tr>
+<tr>
+<th>8</th>
+<td>Ризотто с морепродуктами</td>
+</tr>
+<tr>
+<th>9</th>
+<td>Шоколадный торт</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Бургер</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Суши</td>
+</tr>
+<tr>
+<th>12</th>
+<td>Салат Оливье</td>
+</tr>
+<tr>
+<th>13</th>
+<td>Ризотто с морепродуктами</td>
+</tr>
+<tr>
+<th>14</th>
+<td>Шоколадный торт</td>
+</tr>
+<tr>
+<th>15</th>
+<td>Бургер</td>
+</tr>
+<tr>
+<th>16</th>
+<td>Суши</td>
+</tr>
+<tr>
+<th>17</th>
+<td>Салат Оливье</td>
+</tr>
+<tr>
+<th>18</th>
+<td>Ризотто с морепродуктами</td>
+</tr>
+<tr>
+<th>19</th>
+<td>Шоколадный торт</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>все блюда заказа с номером 2 (или другим номером).</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
+
+
+<span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
 
     <span class="c1"># 3.4</span>
     <span class="n">query</span> <span class="o">=</span> <span class="s2">"""</span>
@@ -8011,10 +9256,316 @@ a.anchor-link {
 
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>3</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>1</th>
+<td>4</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>3</th>
+<td>5</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>5</th>
+<td>5</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>6</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>7</th>
+<td>5</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>список блюд по убыванию цены.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
+
+
+<span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+
     <span class="c1"># 3.5</span>
     <span class="n">query</span> <span class="o">=</span> <span class="s2">"select * from Dishes order by price desc"</span>
 
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+
+<span class="n">items</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>7</td>
+<td>Суши</td>
+<td>20.00</td>
+</tr>
+<tr>
+<th>1</th>
+<td>12</td>
+<td>Суши</td>
+<td>20.00</td>
+</tr>
+<tr>
+<th>2</th>
+<td>17</td>
+<td>Суши</td>
+<td>20.00</td>
+</tr>
+<tr>
+<th>3</th>
+<td>9</td>
+<td>Ризотто с морепродуктами</td>
+<td>18.25</td>
+</tr>
+<tr>
+<th>4</th>
+<td>14</td>
+<td>Ризотто с морепродуктами</td>
+<td>18.25</td>
+</tr>
+<tr>
+<th>5</th>
+<td>19</td>
+<td>Ризотто с морепродуктами</td>
+<td>18.25</td>
+</tr>
+<tr>
+<th>6</th>
+<td>6</td>
+<td>Бургер</td>
+<td>15.50</td>
+</tr>
+<tr>
+<th>7</th>
+<td>11</td>
+<td>Бургер</td>
+<td>15.50</td>
+</tr>
+<tr>
+<th>8</th>
+<td>16</td>
+<td>Бургер</td>
+<td>15.50</td>
+</tr>
+<tr>
+<th>9</th>
+<td>1</td>
+<td>Пицца Маргарита</td>
+<td>12.99</td>
+</tr>
+<tr>
+<th>10</th>
+<td>4</td>
+<td>Спагетти Карбонара</td>
+<td>10.25</td>
+</tr>
+<tr>
+<th>11</th>
+<td>2</td>
+<td>Салат Цезарь</td>
+<td>8.50</td>
+</tr>
+<tr>
+<th>12</th>
+<td>8</td>
+<td>Салат Оливье</td>
+<td>7.80</td>
+</tr>
+<tr>
+<th>13</th>
+<td>13</td>
+<td>Салат Оливье</td>
+<td>7.80</td>
+</tr>
+<tr>
+<th>14</th>
+<td>18</td>
+<td>Салат Оливье</td>
+<td>7.80</td>
+</tr>
+<tr>
+<th>15</th>
+<td>5</td>
+<td>Тирамису</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>16</th>
+<td>3</td>
+<td>Томатный суп</td>
+<td>6.75</td>
+</tr>
+<tr>
+<th>17</th>
+<td>10</td>
+<td>Шоколадный торт</td>
+<td>6.50</td>
+</tr>
+<tr>
+<th>18</th>
+<td>15</td>
+<td>Шоколадный торт</td>
+<td>6.50</td>
+</tr>
+<tr>
+<th>19</th>
+<td>20</td>
+<td>Шоколадный торт</td>
+<td>6.50</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Измените расчёт суммы к оплате, предусмотрев скидку 5% при наличии в заказе 3 и более блюд.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
+
+
+<span class="k">with</span> <span class="n">sl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"cafe.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
 
 
     <span class="c1"># 3.6</span>
@@ -8029,8 +9580,79 @@ a.anchor-link {
     <span class="n">items</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span>
     <span class="n">items</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s2">"total"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s2">"total"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">items</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>order_id</th>
+<th>count</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>9</td>
+<td>93.06</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>8</td>
+<td>60.32</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>8</td>
+<td>64.84</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="4">
+<li>Создайте датафреймы для хранения информации о трёх новых блюдах, двух новых заказах, в каждом из которых по 2-3 блюда. С помощью метода to_sql выполните запись в базу данных.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -8039,7 +9661,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sl</span>
@@ -8090,7 +9712,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">system</span>
@@ -8109,12 +9731,12 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>[NbConvertApp] Converting notebook practice_1.ipynb to html
-[NbConvertApp] Writing 303027 bytes to practice_1.html
+[NbConvertApp] Writing 334595 bytes to practice_1.html
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>0</pre>
 </div>
